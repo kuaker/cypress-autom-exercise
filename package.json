@@ -1,0 +1,29 @@
+{
+  "name": "Cypress Automation Exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cy:run:login-tests": "cypress run --browser chrome --spec cypress/e2e/tests/login-tests/*.ts"
+  },
+  "keywords": [],
+  "author": "Fernando J. Arroupe",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.10.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "prettier": "3.2.5",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "chance": "^1.1.11",
+    "dotenv": "^16.4.5",
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/webpack-preprocessor": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest"
+  }
+}
