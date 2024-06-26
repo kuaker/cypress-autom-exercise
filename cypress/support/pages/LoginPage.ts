@@ -88,6 +88,13 @@ export class LoginPage {
         });
     };
 
+    fillSignUpFieldsWithExistingData = () => {
+        cy.readFile('cypress/fixtures/validUserData.json').then((data) => {
+            this.getSignUpNewName().clear().type(data.name);
+            this.getSignUpEmailAddress().clear().type(data.email);
+        });
+    };
+
     fillLoginFieldsWithInvalidData = () => {
         this.getLoginEmail().clear().type('invalidemail@gmail.com');
         this.getLoginPassword().clear().type('invaliQPassword');

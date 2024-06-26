@@ -37,5 +37,13 @@ context('E2E Tests', () => {
             Header.clickOnDeleteAccount()
             AssertDeleteAccount.checkAccountDeleteMessagesAreVisible()
         })
+
+        it('Register User with existing email', () => {
+            Header.clickOnLoginSignUpButton()
+            AssertLoginPage.checkSignUpTitleIsVisible()
+            LoginPage.fillSignUpFieldsWithExistingData()
+            LoginPage.clickOnSignUpButton()
+            AssertLoginPage.checkEmailAlreadyExists()
+        })
     })
 })
