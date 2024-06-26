@@ -27,5 +27,16 @@ context('E2E Tests', () => {
             LoginPage.clickOnLoginButton()
             AssertLoginPage.checkInvalidadEmailAndPasswordIsVisible();
         })
+
+        it('Logout User', () => {
+            Header.clickOnLoginSignUpButton()
+            AssertLoginPage.checkSignUpTitleIsVisible()
+            LoginPage.fillLoginFieldsWithExistingData()
+            LoginPage.clickOnLoginButton()
+            AssertHeader.checkLoggedAsUsernameIsVisible()
+            Header.clickOnLogOut();
+            AssertLoginPage.checkSignUpTitleIsVisible();
+            cy.url().should('contain', 'login');
+        })
     })
 })
