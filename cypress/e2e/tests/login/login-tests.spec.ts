@@ -6,7 +6,7 @@ import LoginPage from "../../../support/pages/LoginPage"
 
 context('E2E Tests', () => {
 
-    before(() => {
+    beforeEach(() => {
         cy.visit('/')
         AssertHomePage.checkSliderIsVisible()
     })
@@ -18,6 +18,14 @@ context('E2E Tests', () => {
             LoginPage.fillLoginFieldsWithExistingData()
             LoginPage.clickOnLoginButton()
             AssertHeader.checkLoggedAsUsernameIsVisible()
+        })
+
+        it('Login User with incorrect email and password', () => {
+            Header.clickOnLoginSignUpButton()
+            AssertLoginPage.checkSignUpTitleIsVisible()
+            LoginPage.fillLoginFieldsWithInvalidData()
+            LoginPage.clickOnLoginButton()
+            AssertLoginPage.checkInvalidadEmailAndPasswordIsVisible();
         })
     })
 })

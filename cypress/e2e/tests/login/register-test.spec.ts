@@ -38,10 +38,10 @@ context('E2E Tests', () => {
             AssertDeleteAccount.checkAccountDeleteMessagesAreVisible()
         })
 
-        it.skip('Register Valid User', () => {
+        it.only('Register Valid User', () => {
             Header.clickOnLoginSignUpButton()
             AssertLoginPage.checkSignUpTitleIsVisible()
-            LoginPage.fillNameAndEmailForSignUp()
+            LoginPage.fillTheSignUpWithSpecificNameAndEmail()
             LoginPage.clickOnSignUpButton()
             AssertSignUpPage.checkAccountInformationTitleIsVisible()
             AccountInformation.setValidNameEmailAndPassword()

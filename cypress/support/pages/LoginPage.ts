@@ -50,6 +50,13 @@ export class LoginPage {
         this.saveUserData();
     };
 
+    fillTheSignUpWithSpecificNameAndEmail = () => {
+        cy.readFile('cypress/fixtures/validUserData.json').then((data) => {
+            this.getSignUpNewName().clear().type(data.name);
+            this.getSignUpEmailAddress().clear().type(data.email);
+        })
+    };
+
     completeDataAndSignUp = () => {
         this.fillNameAndEmailForSignUp();
         this.clickOnSignUpButton();
