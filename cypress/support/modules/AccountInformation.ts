@@ -52,6 +52,15 @@ export class AccountInformation {
         this.setPassword(password);
     };
 
+    setValidNameEmailAndPassword = () => {
+        cy.log('*** setNameEmailAndPassword ****');
+        let name = 'automationuser+999@megakuaker.com';
+        let password = 'p@ssw#RRd!';
+
+        this.setName(name);
+        this.setPassword(password);
+    };
+
     setDateOfBirth() {
         cy.log('*** selectDateOfBirth ****');
         let day = getRandomDay();

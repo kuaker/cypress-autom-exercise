@@ -47,4 +47,4 @@ jobs:
               with:
                   name: cypress-user-flow-report
                   path: cypress/results
-                  retention-days: 30
+                  retention-days: 7

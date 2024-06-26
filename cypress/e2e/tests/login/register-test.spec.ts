@@ -15,11 +15,11 @@ context('E2E Tests', () => {
 
     beforeEach(() => {
         cy.visit('/')
+        AssertHomePage.checkSliderIsVisible()
     })
 
     describe('Register test cases', () => {
         it('Register User', () => {
-            AssertHomePage.checkSliderIsVisible()
             Header.clickOnLoginSignUpButton()
             AssertLoginPage.checkSignUpTitleIsVisible()
             LoginPage.fillNameAndEmailForSignUp()
@@ -37,6 +37,22 @@ context('E2E Tests', () => {
             Header.clickOnDeleteAccount()
             AssertDeleteAccount.checkAccountDeleteMessagesAreVisible()
         })
-    })
 
+        it.skip('Register Valid User', () => {
+            Header.clickOnLoginSignUpButton()
+            AssertLoginPage.checkSignUpTitleIsVisible()
+            LoginPage.fillNameAndEmailForSignUp()
+            LoginPage.clickOnSignUpButton()
+            AssertSignUpPage.checkAccountInformationTitleIsVisible()
+            AccountInformation.setValidNameEmailAndPassword()
+            AccountInformation.setDateOfBirth()
+            AccountInformation.selectCheckBoxNewLetter().check()
+            AccountInformation.selectCheckBoxOfferss().check()
+            AddressInformation.fillFormWithInformation()
+            SignUpPage.clickOnCreateAccountButton()
+            AssertAccountCreatedPage.checkAccountWasCreated()
+            AccountCreatedPage.clickOnContinueButton()
+            AssertHeader.checkLoggedAsUsernameIsVisible()
+        })
+    })
 })
